@@ -66,7 +66,7 @@ function UserProfile() {
                 <Text style = {styles.txt}>User Course Interests:</Text>
 
                 <View style={styles.interest}>
-                {arr.IT && <Image style = {{width: 100, height: 100}} source = {require('../assets/IT.png')}/>}
+                {arr.IT && <Image style = {{width: 100, height: 100}} source = {require('../assets/IT.png')} />}
                 {arr.Safety && <Image style = {{width: 100, height: 100}} source = {require('../assets/Safety.png')}/>}
                 {arr.Logistics && <Image style = {{width: 100, height: 100}} source = {require('../assets/Logistics.png')}/>}
                 </View>
@@ -122,7 +122,8 @@ const styles = StyleSheet.create({
         height: 100, 
     },
     interest: {
-        flexDirection: 'row'
+        flexDirection: 'row',
+        marginLeft: 20
     }
 })
 
