@@ -8,7 +8,7 @@ import {useNavigation } from '@react-navigation/native';
 import { auth } from '../../firebase';
 import {db} from '../../firebase';
 import {getDoc, collection, doc, query, where, onSnapshot, getDocs} from 'firebase/firestore';
-import { async } from '@firebase/util';
+
 
 
 const HomeScreen = () => {
@@ -25,7 +25,6 @@ const HomeScreen = () => {
       events.push({...doc.data()})
     });
     setCourses(prev => prev.concat(events));
-    console.log(courses);
 }
 
   const getUserPreference = async() => {
@@ -37,11 +36,11 @@ const HomeScreen = () => {
         const q1 = query(colRef, where('slide', '==', 1));
         const result = await addCourse(q1);
       }
-      if (newData.Marketing) {
+      if (newData.Safety) {
         const q2 = query(colRef, where('slide', '==', 2));
         const result = await addCourse(q2);
       }
-      if (newData.Leadership) {
+      if (newData.Logistics) {
         const q3 = query(colRef, where('slide', '==', 3));
         const result = await addCourse(q3);
       }
