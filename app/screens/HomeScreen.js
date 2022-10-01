@@ -7,7 +7,8 @@ import {useNavigation } from '@react-navigation/native';
 
 import { auth } from '../../firebase';
 import {db} from '../../firebase';
-import {getDoc, collection, doc, query, where, onSnapshot} from 'firebase/firestore';
+import {getDoc, collection, doc, query, where, onSnapshot, getDocs} from 'firebase/firestore';
+import { async } from '@firebase/util';
 
 
 const HomeScreen = () => {
@@ -16,19 +17,16 @@ const HomeScreen = () => {
   const [courses, setCourses] = useState([]);
   const colRef = collection(db, "courses");
 
-  useEffect(() => {
-    getUserPreference();
-  },[])
 
-  const addCourse = (q) => 
-    onSnapshot(q, (snapshot) => {
-    const events = []
-    snapshot.docs.forEach((doc) => {
-        events.push({...doc.data()}) //put the data into an array
-        
-    })
+  const addCourse = async (q) => {
+    const events = [];
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      events.push({...doc.data()})
+    });
     setCourses(prev => prev.concat(events));
-})
+    console.log(courses);
+}
 
   const getUserPreference = async() => {
     const docRef = doc(db, "user_status", auth.currentUser.uid);
@@ -36,20 +34,24 @@ const HomeScreen = () => {
     if (docSnap.exists()) {
       newData = docSnap.data();
       if (newData.IT) {
-        const q1 = query(colRef, where('type', '==', 1));
-        addCourse(q1);
+        const q1 = query(colRef, where('slide', '==', 1));
+        const result = await addCourse(q1);
       }
       if (newData.Marketing) {
-        const q2 = query(colRef, where('type', '==', 2));
-        addCourse(q2);
+        const q2 = query(colRef, where('slide', '==', 2));
+        const result = await addCourse(q2);
       }
       if (newData.Leadership) {
-        const q3 = query(colRef, where('type', '==', 3));
-        addCourse(q3);
+        const q3 = query(colRef, where('slide', '==', 3));
+        const result = await addCourse(q3);
       }
     }
     
   }
+
+  useEffect(() => {
+    getUserPreference();
+  },[]);
 
     return (
       <View style={styles.container}>
@@ -100,7 +102,16 @@ const styles = StyleSheet.create({
   carousel: {
     alignSelf: 'center',
     paddingTop: 20,
+  },
+  imageContainer: {
+    height: '100%',
+    width: '100%',
+
+  },
+  smalltext: {
+    paddingLeft: 30,
   }
+
 })
 
 export default HomeScreen
