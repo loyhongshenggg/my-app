@@ -44,24 +44,23 @@ function WelcomeScreen() {
   
   return (
     <KeyboardAvoidingView
-      behavior={Platform.OS === "ios" ? "padding" : "height"}
       style={styles.container}
     >
       <ImageBackground 
           style = {styles.imageContainer}
-          blurRadius = {8}
-          source = {require('../assets/LoginScreen.png')}>
+          blurRadius = {5}
+          source = {require('../assets/LoginScreen.jpg')}>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={styles.inner}>
           
           
         <Image 
-            source = {require('../assets/Logo.png')}
+            source = {require('../assets/logo.png')}
             style = {{
               alignSelf: 'center',
-              height: 400,
-              width: 300,
-              bottom: 50,
+              height: 100,
+              width: 200,
+              paddingTop: 100,
               
             }}
             />
@@ -72,14 +71,14 @@ function WelcomeScreen() {
               placeholder = "Email" 
               value = {email}
               onChangeText = {text => setEmail(text)}
-              style = {styles.textInput}>
+              style = {styles.textInput1}>
             </TextInput>
           </View>
           <TextInput
           placeholder="Password"
           value={password}
           onChangeText={text => setPassword(text)}
-          style={styles.textInput}
+          style={styles.textInput2}
           secureTextEntry={true}>
           
          </TextInput>
@@ -105,28 +104,38 @@ const styles = StyleSheet.create({
   },
   inner: {
     flex: 1,
-    justifyContent: "space-around"
+    justifyContent: "space-evenly"
   },
   header: {
     fontSize: 36,
     marginBottom: 48
   },
-  textInput: {
+  textInput1: {
     height: 40,
     borderColor: "#000000",
     borderBottomWidth: 1,
-    marginBottom: 30,
-    bottom: 90,
+    bottom: 0,
     backgroundColor: 'white',
     width: '80%',
     alignSelf: 'center',
+    
+  },
+  textInput2: {
+    height: 40,
+    borderColor: "#000000",
+    borderBottomWidth: 1,
+    marginBottom: 0,
+    backgroundColor: 'white',
+    width: '80%',
+    alignSelf: 'center',
+    bottom: 10,
     
   },
   btnContainer: {
     marginTop: 12,
     width: 150,
     alignSelf: 'center',
-    bottom: 80,
+    bottom: 10,
     paddingTop: 10,
   },
   imageContainer: {
@@ -135,7 +144,7 @@ const styles = StyleSheet.create({
     
   },
   txt: {
-    paddingBottom: 60,
+    paddingBottom: 10,
   },
   forget: {
     color: colors.white,

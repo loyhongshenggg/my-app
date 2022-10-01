@@ -29,8 +29,8 @@ const ForgetPasssword = () => {
   return (
     <ImageBackground 
           style = {styles.imageContainer}
-          blurRadius = {8}
-          source = {require('../assets/LoginScreen.png')}>
+          blurRadius = {5}
+          source = {require('../assets/LoginScreen.jpg')}>
     <Text style={styles.text}>Forgot Password?</Text>
     <View style = {styles.backIcon}>
                     <MaterialCommunityIcons name='arrow-left-bold' 
