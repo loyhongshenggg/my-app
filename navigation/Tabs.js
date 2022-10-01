@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import HomeScreen from "../app/screens/HomeScreen";
 import colors from "../app/config/colors";
-import UserProfile from "../app/screens/UserProfile";
+import UserProfileScreen from "../app/screens/UserProfileScreen"
 import Scan from "../app/screens/Scan";
 import CoursesScreen from "../app/screens/CoursesScreen";
 
@@ -98,7 +98,7 @@ const Tabs = () => {
                     </View>
                 ),
             }}/>
-            <Tab.Screen name = "UserProfile" component={UserProfile} options={{
+            <Tab.Screen name = "UserProfile" component={UserProfileScreen} options={{
                 tabBarIcon: ({focused}) => (
                     <View style={{alignItems: "center", justifyContent: "center", top: 5}}>
                         <Image 
