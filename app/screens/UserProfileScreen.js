@@ -67,8 +67,8 @@ function UserProfile() {
 
                 <View style={styles.interest}>
                 {arr.IT && <Image style = {{width: 100, height: 100}} source = {require('../assets/IT.png')}/>}
-                {arr.Marketing && <Image style = {{width: 100, height: 100}} source = {require('../assets/Marketing.png')}/>}
-                {arr.Leadership && <Image style = {{width: 100, height: 100}} source = {require('../assets/Leadership.png')}/>}
+                {arr.Safety && <Image style = {{width: 100, height: 100}} source = {require('../assets/Safety.png')}/>}
+                {arr.Logistics && <Image style = {{width: 100, height: 100}} source = {require('../assets/Logistics.png')}/>}
                 </View>
 
                 

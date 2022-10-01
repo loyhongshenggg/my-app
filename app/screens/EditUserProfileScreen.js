@@ -88,16 +88,16 @@ export default function EditUserProfileScreen() {
   
   //checkbox 
   const [checkboxStateIT, setCheckboxStateIT] = useState(false);
-  const [checkboxStateMarketing, setCheckboxStateMarketing] = useState(false);
-  const [checkboxStateLeadership, setCheckboxStateLeadership] = useState(false);
+  const [checkboxStateSafety, setCheckboxStateSafety] = useState(false);
+  const [checkboxStateLogistics, setCheckboxStateLogistics] = useState(false);
 
   async function writeInterest() {
     const docRef = doc(db, "user_status", auth.currentUser.uid);
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
-      await updateDoc(docRef, {IT: checkboxStateIT, Marketing: checkboxStateMarketing, Leadership: checkboxStateLeadership})
+      await updateDoc(docRef, {IT: checkboxStateIT, Safety: checkboxStateSafety, Logistics: checkboxStateLogistics})
     } else {
-      await setDoc(docRef, {IT: checkboxStateIT, Marketing: checkboxStateMarketing, Leadership: checkboxStateLeadership})
+      await setDoc(docRef, {IT: checkboxStateIT, Safety: checkboxStateSafety, Logistics: checkboxStateLogistics})
     }
   }
   
@@ -151,20 +151,20 @@ export default function EditUserProfileScreen() {
               size={25}
               fillColor="green"
               unfillColor="#FFFFFF"
-              text="Leadership courses"
+              text="Logistics courses"
               iconStyle={{ borderColor: "green" }}
               textStyle={{textDecorationLine: 'none'}}
-              onPress={() => setCheckboxStateLeadership(!checkboxStateLeadership)}
+              onPress={() => setCheckboxStateLogistics(!checkboxStateLogistics)}
               style = {{paddingTop: 10}}
             />
             <BouncyCheckbox
               size={25}
               fillColor="blue"
               unfillColor="#FFFFFF"
-              text="Marketing courses"
+              text="Safety courses"
               iconStyle={{ borderColor: "blue" }}
               textStyle={{textDecorationLine: 'none'}}
-              onPress={() => setCheckboxStateMarketing(!checkboxStateMarketing)}
+              onPress={() => setCheckboxStateSafety(!checkboxStateSafety)}
               style = {{paddingTop: 10}}
             />
             </View>
