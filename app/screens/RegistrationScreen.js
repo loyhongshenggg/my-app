@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import { Text, View, KeyboardAvoidingView, ImageBackground, TextInput, StyleSheet, Image, onPress } from 'react-native'
 import AppButton from '../components/AppButton';
 import {MaterialCommunityIcons} from '@expo/vector-icons'

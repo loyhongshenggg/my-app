@@ -22,7 +22,8 @@ function WelcomeScreen() {
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(user => {
       if (user) {
-        navigation.replace("home")//Welcome screen navigate to homescreen
+        // navigation.replace("home")//Welcome screen navigate to homescreen
+        navigation.replace("editUserProfile")
       }
     })
     return unsubscribe
