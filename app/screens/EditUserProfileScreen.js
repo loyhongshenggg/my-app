@@ -95,9 +95,9 @@ export default function EditUserProfileScreen() {
     const docRef = doc(db, "user_status", auth.currentUser.uid);
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
-      await updateDoc(docRef, {Run: checkboxStateIT, Cycle: checkboxStateMarketing, Swim: checkboxStateLeadership})
+      await updateDoc(docRef, {IT: checkboxStateIT, Marketing: checkboxStateMarketing, Leadership: checkboxStateLeadership})
     } else {
-      await setDoc(docRef, {Run: checkboxStateIT, Cycle: checkboxStateMarketing, Swim: checkboxStateLeadership})
+      await setDoc(docRef, {IT: checkboxStateIT, Marketing: checkboxStateMarketing, Leadership: checkboxStateLeadership})
     }
   }
   
@@ -121,7 +121,7 @@ export default function EditUserProfileScreen() {
                     color={colors.primary}
                     size={35}
                     onPress={() => {
-                      navigation.replace("home")
+                      navigation.replace("tabs")
                     }}
                     />
             </View>

@@ -6,6 +6,8 @@ import HomeScreen from './app/screens/HomeScreen';
 import RegistrationScreen from './app/screens/RegistrationScreen';
 import ForgetPassswordScreen from './app/screens/ForgetPasswordScreen';
 import EditUserProfileScreen from './app/screens/EditUserProfileScreen';
+import Tabs from './navigation/Tabs';
+
 
 const Stack = createNativeStackNavigator();
 
@@ -18,6 +20,7 @@ const App = () => {
         <Stack.Screen options = { {headerShown: false}} name ="home" component={HomeScreen} /> 
         <Stack.Screen options = { {headerShown: false}} name ="forgetPassword" component={ForgetPassswordScreen} />
         <Stack.Screen options = { {headerShown: false}} name ="editUserProfile" component={EditUserProfileScreen} />
+        <Stack.Screen options = { {headerShown: false}} name ="tabs" component={Tabs} /> 
       </Stack.Navigator>
     </NavigationContainer>
 
