@@ -9,7 +9,7 @@ import { useNavigation } from '@react-navigation/core';
 const PastCoursesScreen = () => {
   const navigation = useNavigation();
   return (
-    <View>
+    <View style = {{marginTop: 25}}>
     <MaterialCommunityIcons name='arrow-left-bold' 
             color={colors.primary}
             size={35}
@@ -17,7 +17,7 @@ const PastCoursesScreen = () => {
               navigation.replace("viewCourses")
             }}
             />
-    <View style = {{marginTop:12, flexDirection: "column", justifyContent: "space-between", marginLeft:12}}>
+    <View style = {{marginTop:12, flexDirection: "column", justifyContent: "space-between", marginLeft: 15}}>
     <PastCourse icon = "Entypo" iconName = "classic-computer" color = "blue" title = "Learn Programming From Scratch"
     description = "Install, maintain and repair software components in computers"
     expiry = "18/07/2023"/>
