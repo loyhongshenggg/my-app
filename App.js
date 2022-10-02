@@ -7,6 +7,7 @@ import RegistrationScreen from './app/screens/RegistrationScreen';
 import ForgetPassswordScreen from './app/screens/ForgetPasswordScreen';
 import EditUserProfileScreen from './app/screens/EditUserProfileScreen';
 import Tabs from './navigation/Tabs';
+import Form from './app/screens/Form';
 import CourseListing1 from "./app/screens/CourseListing1"
 import CurrentCoursesScreen from './app/screens/CurrentCoursesScreen';
 import PastCoursesScreen from './app/screens/PastCoursesScreen';
@@ -24,6 +25,7 @@ const App = () => {
         <Stack.Screen options = { {headerShown: false}} name ="forgetPassword" component={ForgetPassswordScreen} />
         <Stack.Screen options = { {headerShown: false}} name ="editUserProfile" component={EditUserProfileScreen} />
         <Stack.Screen options = { {headerShown: false}} name ="tabs" component={Tabs} /> 
+        <Stack.Screen options = { {headerShown: false}} name ="form" component={Form} /> 
         <Stack.Screen options = { {headerShown: false}} name ="listing" component={CourseListing1} /> 
         <Stack.Screen options = { {headerShown: false}} name ="pastCourses" component={PastCoursesScreen} /> 
         <Stack.Screen options = { {headerShown: false}} name ="currentCourses" component={CurrentCoursesScreen} /> 

@@ -11,7 +11,7 @@ function CourseListing1() {
     return (
         <Screen>
         <View>
-            <Image style = {styles.image} source = {require('../assets/IT.png')} />
+            <Image style = {styles.image} source = {require('../assets/Logistics.png')} />
             <View style = {styles.backIcon}>
                     <MaterialCommunityIcons name='arrow-left-bold' 
                     color="white" 
@@ -21,8 +21,8 @@ function CourseListing1() {
                   }} />
             </View>
             <View style = {styles.detailsContainer}>
-                <AppText style = {styles.title}>Runners Zoom at Nike's First 21K We Run Kuala Lumpur Race</AppText>
-                <AppText style = {styles.pricing}>$50/pax</AppText>
+                <AppText style = {styles.title}>Warehouse Management in Logistics</AppText>
+                <AppText style = {styles.pricing}>$19.98/pax</AppText>
                 <View styles = {styles.Profile}>
                     {/* <Profile
                         image = {require('../assets/IT.jpg')}
@@ -32,7 +32,15 @@ function CourseListing1() {
                 </View>
             </View>
             <Text style = {{padding: 20, bottom: 50}}>
-            On Feb. 1, a field of 8,000 athletes raced toward their personal bests at Nike’s We Run Kuala Lumpur 21K. For the first time, the race featured a 21K distance, making it one of four cities to host a half-marathon distance in the global Nike We Run Race Series, which aims to inspire athletes to push themselves beyond their limits and unleash their potential.
+            In this Warehouse Management in Logistics & Supply Chain Management course, you will 
+            learn some of the key skills required to be a successful Warehouse Management 
+            professional in Logistics and Supply Chain. You will learn about warehouse management 
+            principles, important warehouse processes and common trends in logistics and supply 
+            chain management. As well as learning about automation and warehouse management 
+            technology, you will also learn about outsourcing. This warehouse management system 
+            course will prepare you to successfully manage your own warehouse. So if you work in 
+            logistics and supply chain industry this course will be a boon. As the instructor has 
+            used infographics to boost the your imagination and it will help you understand better.
             </Text>
             
         </View>
