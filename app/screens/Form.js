@@ -9,14 +9,22 @@ import DateTimePicker from '@react-native-community/datetimepicker'
 import colors from '../config/colors';
 import ModalDropdown from 'react-native-modal-dropdown';
 
+import { uploadBytes, ref, getDownloadURL} from 'firebase/storage';
+import {getDoc,doc,setDoc,updateDoc} from 'firebase/firestore';
+import {db} from '../../firebase';
+import { storage } from '../../firebase';
 
-import { uploadBytes, ref, getDownloadURL, uploadString } from 'firebase/storage';
+import { useNavigation } from '@react-navigation/native';
+
+import { auth } from '../../firebase';
+
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 
 
 function Form(props) {
 
+  const navigation = useNavigation();
     //input validation
     const scanValidationSchema = Yup.object().shape({
         titleOfCertification: Yup.string().required('Title of Certification is Required'),
@@ -44,9 +52,7 @@ function Form(props) {
     
       function handleButton() {
        handleImagePicked(res);
-       writeStatus();
-       writeInterest();
-       alert('uploaded')
+       
       }
     
       const handleImagePicked = async (result) => {
@@ -79,7 +85,7 @@ function Form(props) {
           xhr.send(null);
         });
       
-        const photoRef = ref(storage, 'user_profile_pictures/' + auth.currentUser.uid + '/' + auth.currentUser.uid);
+        const photoRef = ref(storage, 'user_certificates/' + auth.currentUser.uid + '/' + auth.currentUser.uid);
         const result = await uploadBytes(photoRef, blob);
         
     
@@ -92,7 +98,7 @@ function Form(props) {
       const [date, setDate] = useState(new Date())
       const [finDate, setFinDate] = useState("")
       const [show, setShow] = useState(false)
-      const [text, setText] = useState('Empty')
+      const [res, setRes] = useState(null);
 
       const onChange = (event, selectedDate) => {
         const currentDate = selectedDate || date;
@@ -110,21 +116,18 @@ function Form(props) {
       const [showDropDown, setShowDropDown] = useState(false);
       const [type, setType] = useState("")
 
-      const typeList = [
-        {
-          label: "IT",
-          value: "IT",
-        },
-        {
-          label: "Safety",
-          value: "Safety",
-        },
-        {
-          label: "Logistics",
-          value: "Logistics",
-        },
-      ];
+      async function writeForm(value) {
+        const docRef = doc(db, "user_certification", auth.currentUser.uid);
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists()) {
+          await updateDoc(docRef, {value})
+        } else {
+          await setDoc(docRef, {value})
+        }
+      }
+      
 
+      
   return (
     <Formik 
         initialValues = {{
@@ -136,7 +139,10 @@ function Form(props) {
             
         }}
         validationSchema={ scanValidationSchema }
-        onSubmit={values => console.log(values)}
+        onSubmit={values => {
+          console.log(values);
+          writeForm(values);
+        }}
     >
         
 
@@ -168,7 +174,7 @@ function Form(props) {
             </View>
             </TouchableOpacity>
 
-        {errors.titleOfCertification && touched.titleOfCertification ? (
+        {errors.titleOfCertification ? (
             <Text style = {styles.errorMessage}>{errors.titleOfCertification}</Text>
         ) : null}
         
@@ -178,7 +184,7 @@ function Form(props) {
             onChangeText={handleChange('courseID')}
             style={styles.textInput}
         />
-        {errors.courseID && touched.courseID ? (
+        {errors.courseID ? (
             <Text style = {styles.errorMessage}>{errors.courseID}</Text>
         ) : null}
         {Platform.OS === 'ios' 
@@ -204,7 +210,7 @@ function Form(props) {
         /></View>}
         
         {Platform.OS === 'android' && <Text style = {styles.dateText}>{date.toDateString()}</Text>}
-        {errors.expiryDate && touched.expiryDate ? (
+        {errors.expiryDate ? (
             <Text style = {styles.errorMessage}>{errors.expiryDate}</Text>
         ) : null}
         
@@ -214,7 +220,7 @@ function Form(props) {
             onChangeText={handleChange('certifyingAuthority')}
             style={styles.textInputAuth}
         />
-        {errors.certifyingAuthority && touched.certifyingAuthority ? (
+        {errors.certifyingAuthority ? (
             <Text style = {styles.errorMessage}>{errors.certifyingAuthority}</Text>
         ) : null}
         <View style = {styles.choosecert}>
@@ -223,7 +229,8 @@ function Form(props) {
         {image != null && <Image source = {{uri: image}} style = {styles.cert}/>}
         
     <View style={{top: 15, width: 150, alignSelf: 'center'}}>
-        <AppButton onPress={() => {handleSubmit(); setFieldValue("expiryDate", date)}} title="Submit" />
+        <AppButton onPress={() => {handleSubmit(); setFieldValue("expiryDate", date);  handleButton(); 
+        !errors.certifyingAuthority && !errors.courseID && !errors.expiryDate && !errors.titleOfCertification ? navigation.replace("tabs") : null}} title="Submit" />
     </View>
             <Text></Text>
             <Text></Text>

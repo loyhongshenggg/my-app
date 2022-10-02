@@ -66,13 +66,10 @@ function UserProfile() {
                 <Text style = {styles.txt}>User Course Interests:</Text>
 
                 <View style={styles.interest}>
-                {arr.IT && <Image style = {{width: 100, height: 100}} source = {require('../assets/IT.png')} />}
-                {arr.Safety && <Image style = {{width: 100, height: 100}} source = {require('../assets/Safety.png')}/>}
-                {arr.Logistics && <Image style = {{width: 100, height: 100}} source = {require('../assets/Logistics.png')}/>}
+                {arr.IT && <Image style = {{margin: 8, width: 90, height: 90}} source = {require('../assets/IT.png')} />}
+                {arr.Safety && <Image style = {{margin: 8, width: 90, height: 90}} source = {require('../assets/Safety.png')}/>}
+                {arr.Logistics && <Image style = {{margin: 8, width: 90, height: 90}} source = {require('../assets/Logistics.png')}/>}
                 </View>
-
-                
-                
             </View>
         </View>
                     
