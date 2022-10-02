@@ -9,7 +9,7 @@ import { useNavigation } from '@react-navigation/core';
 const CurrentCoursesScreen = () => {
   const navigation = useNavigation();
   return (
-    <View style = {{padding: 15}}>
+    <View style = {{marginTop: 25}}>
     <MaterialCommunityIcons name='arrow-left-bold' 
             color={colors.primary}
             size={35}
@@ -18,7 +18,7 @@ const CurrentCoursesScreen = () => {
             }}
         
             />
-    <View style = {{marginTop:12, flexDirection: "column", justifyContent: "space-between"}}>
+    <View style = {{marginTop:12, flexDirection: "column", justifyContent: "space-between", marginLeft: 15}}>
     <PresentCourse icon = "Entypo" iconName = "classic-computer" color = "blue"
     title = "Learn Java From Scratch"
     description = "Learn OOP with Java"/>
