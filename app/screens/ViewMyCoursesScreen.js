@@ -9,7 +9,7 @@ import { ScrollView } from 'react-native-gesture-handler';
 
 
 
-function EventsGo_main(props) {
+function ViewMyCoursesScreen(props) {
     const navigation = useNavigation()
 
     return (
@@ -81,4 +81,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default EventsGo_main;
+export default ViewMyCoursesScreen;

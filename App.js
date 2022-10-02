@@ -12,7 +12,7 @@ import CourseListing1 from "./app/screens/CourseListing1"
 import CurrentCoursesScreen from './app/screens/CurrentCoursesScreen';
 import PastCoursesScreen from './app/screens/PastCoursesScreen';
 import CertificateScreen from './app/screens/CertificateScreen';
-
+import ViewMyCoursesScreen from './app/screens/ViewMyCoursesScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -31,6 +31,7 @@ const App = () => {
         <Stack.Screen options = { {headerShown: false}} name ="pastCourses" component={PastCoursesScreen} /> 
         <Stack.Screen options = { {headerShown: false}} name ="currentCourses" component={CurrentCoursesScreen} /> 
         <Stack.Screen options = { {headerShown: false}} name ="certificate" component={CertificateScreen} /> 
+        <Stack.Screen options = { {headerShown: false}} name ="viewCourses" component={ViewMyCoursesScreen} /> 
       </Stack.Navigator>
     </NavigationContainer>
 

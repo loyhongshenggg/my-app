@@ -15,7 +15,7 @@ const CurrentCoursesScreen = () => {
             color={colors.primary}
             size={35}
             onPress={() => {
-              navigation.replace("tabs")
+              navigation.replace("viewCourses")
             }}
             />
     <View style = {{marginTop:12, flexDirection: "column", justifyContent: "space-between", marginLeft:12}}>
