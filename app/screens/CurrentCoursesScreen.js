@@ -4,21 +4,21 @@ import { View } from 'react-native';
 import {MaterialCommunityIcons} from '@expo/vector-icons'
 import colors from '../config/colors';
 import { useNavigation } from '@react-navigation/core';
-import Screen from '../components/Screen';
+
 
 const CurrentCoursesScreen = () => {
   const navigation = useNavigation();
   return (
-    <Screen>
-    <View>
+    <View style = {{padding: 15}}>
     <MaterialCommunityIcons name='arrow-left-bold' 
             color={colors.primary}
             size={35}
             onPress={() => {
               navigation.replace("viewCourses")
             }}
+        
             />
-    <View style = {{marginTop:12, flexDirection: "column", justifyContent: "space-between", marginLeft:12}}>
+    <View style = {{marginTop:12, flexDirection: "column", justifyContent: "space-between", marginLeft:10}}>
     <PresentCourse icon = "Entypo" iconName = "classic-computer" color = "blue"
     title = "Learn Java From Scratch"
     description = "Learn OOP with Java"/>
@@ -31,7 +31,6 @@ const CurrentCoursesScreen = () => {
     </View>
     </View>
     </View>
-    </Screen>
     
   )
 }
