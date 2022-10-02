@@ -15,14 +15,8 @@ function EventsGo_main(props) {
         <Screen>
         <View>
                 <View style = {styles.primary}>
-                <View style = {styles.backIcon}>
-                    <MaterialCommunityIcons name='arrow-left-bold' 
-                    color="white" 
-                    size={35}
-                    onPress={() => {
-                        navigation.replace("tabs")
-                  }} />
-                </View>
+                
+                   
                 <TouchableOpacity onPress={() => {
                       navigation.replace("pastCourses")
                 }}>
@@ -55,7 +49,8 @@ const styles = StyleSheet.create({
     primary: {
         backgroundColor: colors.primary,
         justifyContent: 'center',
-        height: 280, //unable to use flex
+        height: 380, //unable to use flex
+
     }, 
     secondary: {
         backgroundColor: colors.secondary,
@@ -64,17 +59,17 @@ const styles = StyleSheet.create({
     },
     topButton: {
         textAlign: 'center',
-        fontSize: 65,
+        fontSize: 70,
         fontWeight: 'bold',
         color: colors.white,
-        bottom: 20,
+        bottom: 15,
     },
     bottomButton: {
         textAlign: 'center',
         fontSize: 65,
         fontWeight: 'bold',
         color: colors.white,
-        bottom: 20,
+        bottom: 35,
     },
     backIcon:{
         bottom: 90,
