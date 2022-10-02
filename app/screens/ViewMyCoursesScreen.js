@@ -3,7 +3,7 @@ import { Text } from 'react-native'
 
 function CoursesScreen() {
   return (
-    <Text>Courses</Text>
+    <Text>View my Courses</Text>
   )
 }
 
