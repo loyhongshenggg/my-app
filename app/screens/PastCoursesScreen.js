@@ -24,7 +24,7 @@ const PastCoursesScreen = () => {
     <View style = {{marginTop: 12}}>
     <PastCourse icon = "Foundation" iconName = "safety-cone" color = "red" 
     title = "Workplace Safety"
-    description = "Learn ways to to limit hazards and accidents"
+    description = "Learn ways to limit hazards and accidents"
     expiry = "11/09/2025"/>
     </View>
     <View style = {{marginTop: 12}}>
