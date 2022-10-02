@@ -1,5 +1,4 @@
 import { Card } from "@paraboly/react-native-card";
-import { CircularProgressBar } from "@tomik23/react-circular-progress-bar";
 
 const PresentCourse = (props) => {
   // const props1 = {
