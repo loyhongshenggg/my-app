@@ -18,7 +18,7 @@ const CurrentCoursesScreen = () => {
             }}
         
             />
-    <View style = {{marginTop:12, flexDirection: "column", justifyContent: "space-between", marginLeft:10}}>
+    <View style = {{marginTop:12, flexDirection: "column", justifyContent: "space-between"}}>
     <PresentCourse icon = "Entypo" iconName = "classic-computer" color = "blue"
     title = "Learn Java From Scratch"
     description = "Learn OOP with Java"/>

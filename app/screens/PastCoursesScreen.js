@@ -17,7 +17,7 @@ const PastCoursesScreen = () => {
               navigation.replace("viewCourses")
             }}
             />
-    <View style = {{marginTop:12, flexDirection: "column", justifyContent: "space-between", marginLeft:10}}>
+    <View style = {{marginTop:12, flexDirection: "column", justifyContent: "space-between"}}>
     <PastCourse icon = "Entypo" iconName = "classic-computer" color = "blue" title = "Learn Programming From Scratch"
     description = "Install, maintain and repair software components in computers"
     expiry = "18/07/2023"/>
