@@ -55,7 +55,7 @@ function WelcomeScreen() {
           
           
         <Image 
-            source = {require('../assets/logo.png')}
+            source = {require('../assets/Logo.png')}
             style = {{
               alignSelf: 'center',
               height: 100,
