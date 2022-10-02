@@ -9,6 +9,8 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@freakycoder/react-native-bounceable": "^1.0.3",
+    "@paraboly/react-native-card": "^1.0.3",
     "@react-native-community/datetimepicker": "^6.5.0",
     "@react-navigation/bottom-tabs": "^6.4.0",
     "@react-navigation/native": "^6.0.13",
@@ -25,8 +27,10 @@
     "react-dom": "^18.2.0",
     "react-dropdown": "^1.11.0",
     "react-native": "0.69.5",
+    "react-native-androw": "^0.0.34",
     "react-native-bouncy-checkbox": "^3.0.4",
     "react-native-date-picker": "^4.2.5",
+    "react-native-dynamic-vector-icons": "^1.2.0",
     "react-native-gesture-handler": "~2.5.0",
     "react-native-image-picker": "^4.10.0",
     "react-native-modal-dropdown": "^1.0.2",

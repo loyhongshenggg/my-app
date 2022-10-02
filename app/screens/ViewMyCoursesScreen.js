@@ -1,10 +1,85 @@
-import React from 'react'
-import { Text } from 'react-native'
+import React from 'react';
+import { View, TouchableOpacity, StyleSheet, Text} from 'react-native'
+import Screen from '../components/Screen';
+import colors from '../config/colors';
+import { useNavigation } from '@react-navigation/core';
+import {MaterialCommunityIcons} from '@expo/vector-icons'
 
-function CoursesScreen() {
-  return (
-    <Text>View my Courses</Text>
-  )
+
+
+
+function EventsGo_main(props) {
+    const navigation = useNavigation()
+
+    return (
+        <Screen>
+        <View>
+                <View style = {styles.primary}>
+                <View style = {styles.backIcon}>
+                    <MaterialCommunityIcons name='arrow-left-bold' 
+                    color="white" 
+                    size={35}
+                    onPress={() => {
+                        navigation.replace("tabs")
+                  }} />
+                </View>
+                <TouchableOpacity onPress={() => {
+                      navigation.replace("pastCourses")
+                }}>
+                    <Text style = {styles.topButton} >
+                        Past Courses
+                    </Text>
+                 </TouchableOpacity>
+                </View>
+            
+                <View style = {styles.secondary}>
+                <TouchableOpacity onPress={
+                    () => {
+                        navigation.replace("currentCourses")
+                  }
+                }
+                >
+                    <Text style = {styles.bottomButton} >
+                        Current Courses
+                    </Text>
+                </TouchableOpacity>
+                </View>
+            
+        </View>
+        </Screen>
+        
+    );
 }
 
-export default CoursesScreen
+const styles = StyleSheet.create({
+    primary: {
+        backgroundColor: colors.primary,
+        justifyContent: 'center',
+        height: 280, //unable to use flex
+    }, 
+    secondary: {
+        backgroundColor: colors.secondary,
+        justifyContent: 'center',
+        height: 400, //unable to use flex
+    },
+    topButton: {
+        textAlign: 'center',
+        fontSize: 65,
+        fontWeight: 'bold',
+        color: colors.white,
+        bottom: 20,
+    },
+    bottomButton: {
+        textAlign: 'center',
+        fontSize: 65,
+        fontWeight: 'bold',
+        color: colors.white,
+        bottom: 20,
+    },
+    backIcon:{
+        bottom: 90,
+        paddingLeft: 15
+    }
+})
+
+export default EventsGo_main;

@@ -5,7 +5,6 @@ import HomeScreen from "../app/screens/HomeScreen";
 import colors from "../app/config/colors";
 import UserProfileScreen from "../app/screens/UserProfileScreen"
 import Scan from "../app/screens/Scan";
-import CoursesScreen from "../app/screens/CoursesScreen";
 import Form from "../app/screens/Form"
 import ViewMyCoursesScreen from "../app/screens/ViewMyCoursesScreen"
 
