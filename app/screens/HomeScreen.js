@@ -56,8 +56,8 @@ const HomeScreen = () => {
       <View style={styles.container}>
           
       <ImageBackground
-      source = {require('../assets/splash-page.jpg')}
-      blurRadius = {8}
+      source = {require('../assets/splash-page(1).jpg')}
+      blurRadius = {5}
       style = {styles.imageContainer}
         >
       <Text style = {styles.text} >Hello there!</Text> 

@@ -158,9 +158,9 @@ function Form(props) {
             style={styles.textInput}
         />
         
-        <TouchableOpacity>
+        
           <View styles={styles.textInput}>
-            <Text style = {{paddingBottom: 10, paddingLeft: 45}}>Type of Certification</Text>
+            <Text style = {{paddingBottom: 10, paddingLeft: 50}}>Type of Certification</Text>
         <ModalDropdown
               mode={"outlined"}
               value={values.typeOfCertification}
@@ -172,7 +172,7 @@ function Form(props) {
               textStyle={{fontSize: 15, bottom: 2, color: "#636363", width: 300}}
             />
             </View>
-            </TouchableOpacity>
+            
 
         {errors.titleOfCertification ? (
             <Text style = {styles.errorMessage}>{errors.titleOfCertification}</Text>
