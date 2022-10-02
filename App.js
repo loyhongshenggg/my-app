@@ -8,6 +8,7 @@ import ForgetPassswordScreen from './app/screens/ForgetPasswordScreen';
 import EditUserProfileScreen from './app/screens/EditUserProfileScreen';
 import Tabs from './navigation/Tabs';
 import Form from './app/screens/Form';
+import CourseListing1 from "./app/screens/CourseListing1"
 
 
 const Stack = createNativeStackNavigator();
@@ -23,6 +24,7 @@ const App = () => {
         <Stack.Screen options = { {headerShown: false}} name ="editUserProfile" component={EditUserProfileScreen} />
         <Stack.Screen options = { {headerShown: false}} name ="tabs" component={Tabs} /> 
         <Stack.Screen options = { {headerShown: false}} name ="form" component={Form} /> 
+        <Stack.Screen options = { {headerShown: false}} name ="listing" component={CourseListing1} /> 
       </Stack.Navigator>
     </NavigationContainer>
 

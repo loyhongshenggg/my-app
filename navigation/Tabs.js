@@ -7,6 +7,7 @@ import UserProfileScreen from "../app/screens/UserProfileScreen"
 import Scan from "../app/screens/Scan";
 import CoursesScreen from "../app/screens/CoursesScreen";
 import Form from "../app/screens/Form"
+import ViewMyCoursesScreen from "../app/screens/ViewMyCoursesScreen"
 
 const Tab = createBottomTabNavigator();
 
@@ -66,7 +67,7 @@ const Tabs = () => {
                     </View>
                 ),
             }}/>
-            <Tab.Screen name = "Courses" component={CoursesScreen} options={{
+            <Tab.Screen name = "My Courses" component={ViewMyCoursesScreen} options={{
                 tabBarIcon: ({focused}) => (
                     <View style={{alignItems: "center", justifyContent: "center", top: 5}}>
                         <Image 
