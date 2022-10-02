@@ -68,14 +68,14 @@ const Tabs = () => {
             }}/>
             <Tab.Screen name = "My Courses" component={ViewMyCoursesScreen} options={{
                 tabBarIcon: ({focused}) => (
-                    <View style={{alignItems: "center", justifyContent: "center", top: 5}}>
+                    <View style={{alignItems: "center", justifyContent: "center", top: 5.5}}>
                         <Image 
                             source={require('../app/assets/courses.png')}
                             resizeMode = 'contain'
                             style= {{
                                 width: 35,
                                 height: 35,
-                                top: 2,
+                                bottom:2,
                                 tintColor: focused ? colors.primary : null,
                             }}
                         />
