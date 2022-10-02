@@ -4,10 +4,12 @@ import { View } from 'react-native';
 import {MaterialCommunityIcons} from '@expo/vector-icons'
 import colors from '../config/colors';
 import { useNavigation } from '@react-navigation/core';
+import Screen from '../components/Screen';
 
 const CurrentCoursesScreen = () => {
   const navigation = useNavigation();
   return (
+    <Screen>
     <View>
     <MaterialCommunityIcons name='arrow-left-bold' 
             color={colors.primary}
@@ -26,6 +28,7 @@ const CurrentCoursesScreen = () => {
     </View>
     </View>
     </View>
+    </Screen>
     
   )
 }

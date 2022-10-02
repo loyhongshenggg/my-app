@@ -4,6 +4,7 @@ import Screen from '../components/Screen';
 import colors from '../config/colors';
 import { useNavigation } from '@react-navigation/core';
 import {MaterialCommunityIcons} from '@expo/vector-icons'
+import { ScrollView } from 'react-native-gesture-handler';
 
 
 
@@ -12,7 +13,9 @@ function EventsGo_main(props) {
     const navigation = useNavigation()
 
     return (
+        
         <Screen>
+        <ScrollView>
         <View>
                 <View style = {styles.primary}>
                 
@@ -40,6 +43,7 @@ function EventsGo_main(props) {
                 </View>
             
         </View>
+        </ScrollView>
         </Screen>
         
     );
