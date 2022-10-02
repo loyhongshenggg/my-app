@@ -2232,6 +2232,13 @@
   resolved "https://registry.yarnpkg.com/@sideway/pinpoint/-/pinpoint-2.0.0.tgz#cff8ffadc372ad29fd3f78277aeb29e632cc70df"
   integrity sha512-RNiOoTPkptFtSVzQevY/yWtZwf/RxyVnPy/OcA9HBM3MlGDnBEYL5B41H0MTn0Uec8Hi+2qUtTfG2WWZBmMejQ==
 
+"@tomik23/react-circular-progress-bar@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@tomik23/react-circular-progress-bar/-/react-circular-progress-bar-1.1.1.tgz#46f3386c9cccffb773ea3685d26811dc5415500c"
+  integrity sha512-eZZfjdk7tJGNA/eZydBxMO5VPy36daJU4XqAJJeYNQ6LkHfp2e/1cbGV3bC1YTF/gN4Fnl+tmZ3O7jzAzVvYdw==
+  dependencies:
+    prop-types "^15.7.2"
+
 "@types/graceful-fs@^4.1.2":
   version "4.1.5"
   resolved "https://registry.yarnpkg.com/@types/graceful-fs/-/graceful-fs-4.1.5.tgz#21ffba0d98da4350db64891f92a9e5db3cdb4e15"
@@ -6181,6 +6188,11 @@ react-addons-shallow-compare@15.6.2:
     fbjs "^0.8.4"
     object-assign "^4.1.0"
 
+react-circular-progressbar@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/react-circular-progressbar/-/react-circular-progressbar-2.1.0.tgz#99e5ae499c21de82223b498289e96f66adb8fa3a"
+  integrity sha512-xp4THTrod4aLpGy68FX/k1Q3nzrfHUjUe5v6FsdwXBl3YVMwgeXYQKDrku7n/D6qsJA9CuunarAboC2xCiKs1g==
+
 react-devtools-core@4.24.0:
   version "4.24.0"
   resolved "https://registry.yarnpkg.com/react-devtools-core/-/react-devtools-core-4.24.0.tgz#7daa196bdc64f3626b3f54f2ff2b96f7c4fdf017"
@@ -6242,12 +6254,6 @@ react-native-codegen@^0.69.2:
     jscodeshift "^0.13.1"
     nullthrows "^1.1.1"
 
-
-react-native-dynamic-vector-icons@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/react-native-dynamic-vector-icons/-/react-native-dynamic-vector-icons-1.2.0.tgz#193ce1784929340eaa634ebacd99e4e32970667b"
-  integrity sha512-5UT+BGA9GPXe5UljAaGO5fbFfxxZKluuD84qkWvl/PHqJciqYZdhxsJ4pE8jVbdlCsgoYTclIar0owWGUnH0Fg==
-
 react-native-date-picker@^4.2.5:
   version "4.2.5"
   resolved "https://registry.yarnpkg.com/react-native-date-picker/-/react-native-date-picker-4.2.5.tgz#d2e3ff6c8616313bdd75c48ac56a84a57d8a27a3"
@@ -6255,6 +6261,10 @@ react-native-date-picker@^4.2.5:
   dependencies:
     prop-types "^15.8.1"
 
+react-native-dynamic-vector-icons@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/react-native-dynamic-vector-icons/-/react-native-dynamic-vector-icons-1.2.0.tgz#193ce1784929340eaa634ebacd99e4e32970667b"
+  integrity sha512-5UT+BGA9GPXe5UljAaGO5fbFfxxZKluuD84qkWvl/PHqJciqYZdhxsJ4pE8jVbdlCsgoYTclIar0owWGUnH0Fg==
 
 react-native-gesture-handler@~2.5.0:
   version "2.5.0"

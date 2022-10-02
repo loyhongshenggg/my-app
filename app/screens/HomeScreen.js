@@ -61,7 +61,7 @@ const HomeScreen = () => {
       style = {styles.imageContainer}
         >
       <Text style = {styles.text} >Hello there!</Text> 
-      <Text style = {styles.smalltext} >Ongoing events:</Text> 
+      <Text style = {styles.smalltext} >Ongoing courses:</Text> 
       <Text style = {styles.smalltext} >(slide to find out more!)</Text> 
       
       <View style = {styles.carousel}>
