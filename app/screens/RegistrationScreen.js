@@ -38,11 +38,11 @@ function RegistrationPage(props) {
     return (
         <KeyboardAvoidingView
       style={styles.container}
-      behavior="padding">
+      >
        <ImageBackground 
           style = {styles.imageContainer}
-          blurRadius = {8}
-          source = {require('../assets/LoginScreen.png')}>
+          blurRadius = {5}
+          source = {require('../assets/LoginScreen.jpg')}>
         <View style = {styles.backIcon}>
                     <MaterialCommunityIcons name='arrow-left-bold' 
                     color={colors.primary}
