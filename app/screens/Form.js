@@ -211,12 +211,12 @@ const styles = StyleSheet.create({
         height: 150,
         width: 120, 
         left: 225,
-        bottom: 68
+        bottom: 68,
     },
     choosecert: {
         width: 190,
         paddingLeft: 46,
-        bottom: 15
+        bottom: 15,
     }, 
     title: {
         paddingLeft: 45,
@@ -240,7 +240,7 @@ const styles = StyleSheet.create({
     },
     dateText: {
         bottom: 50,
-        paddingLeft: 216,
+        paddingLeft: 221,
         fontSize: 17,
         fontWeight: '600'
     }
