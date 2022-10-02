@@ -56,14 +56,13 @@ const HomeScreen = () => {
       <View style={styles.container}>
           
       <ImageBackground
-      source = {require('../assets/splash-page.png')}
+      source = {require('../assets/splash-page.jpg')}
       blurRadius = {8}
       style = {styles.imageContainer}
         >
       <Text style = {styles.text} >Hello there!</Text> 
-      <Text style = {styles.smalltext} >Ongoing courses:</Text> 
-      <Text style = {styles.smalltext} >(slide to find out more!)</Text> 
-      
+      <Text style = {styles.smalltext} >Here are some suggested courses:</Text> 
+      <Text style = {styles.smalltext} >(Slide to see more courses!)</Text> 
       <View style = {styles.carousel}>
           <Carousel
             layout='tinder'
@@ -74,8 +73,8 @@ const HomeScreen = () => {
                   <Card title={item.title} subTitle = {item.subTitle} image={String(item.url)} onPress={() => navigation.navigate('listing')} />
               </View>
             )}
-            sliderWidth={350}
-            itemWidth={350}
+            sliderWidth={280}
+            itemWidth={280}
           />
       </View>
       </ImageBackground>
@@ -92,7 +91,7 @@ const styles = StyleSheet.create({
   },
   text: {
     padding: 30,
-    paddingTop: 100,
+    paddingTop: 80,
     fontSize: 40,
     fontFamily: "Roboto",
     fontWeight: 'bold',
@@ -109,6 +108,8 @@ const styles = StyleSheet.create({
   },
   smalltext: {
     paddingLeft: 30,
+    fontSize: 20,
+    fontFamily: "Roboto",
   }
 
 })
