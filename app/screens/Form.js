@@ -7,8 +7,12 @@ import * as Yup from 'yup'
 import * as ImagePicker from 'expo-image-picker';
 import DateTimePicker from '@react-native-community/datetimepicker'
 import colors from '../config/colors';
+import ModalDropdown from 'react-native-modal-dropdown';
+
 
 import { uploadBytes, ref, getDownloadURL, uploadString } from 'firebase/storage';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+
 
 
 function Form(props) {
@@ -86,6 +90,7 @@ function Form(props) {
       } 
     
       const [date, setDate] = useState(new Date())
+      const [finDate, setFinDate] = useState("")
       const [show, setShow] = useState(false)
       const [text, setText] = useState('Empty')
 
@@ -97,16 +102,34 @@ function Form(props) {
         let tempDate = new Date(currentDate);
         console.log("date:", tempDate)
         let fDate = tempDate.getDate() + '/' + (tempDate.getMonth() + 1) + '/' + tempDate.getFullYear();
-        
+        setFinDate(tempDate.toDateString())
         return tempDate;
         console.log("date!!!", tempDate)
       }
 
+      const [showDropDown, setShowDropDown] = useState(false);
+      const [type, setType] = useState("")
+
+      const typeList = [
+        {
+          label: "IT",
+          value: "IT",
+        },
+        {
+          label: "Safety",
+          value: "Safety",
+        },
+        {
+          label: "Logistics",
+          value: "Logistics",
+        },
+      ];
 
   return (
     <Formik 
         initialValues = {{
             titleOfCertification: "",
+            typeOfCertification: "IT",
             courseID: "",
             expiryDate: date,
             certifyingAuthority: "",
@@ -128,6 +151,23 @@ function Form(props) {
             onChangeText={handleChange('titleOfCertification')}
             style={styles.textInput}
         />
+        
+        <TouchableOpacity>
+          <View styles={styles.textInput}>
+            <Text style = {{paddingBottom: 10, paddingLeft: 45}}>Type of Certification</Text>
+        <ModalDropdown
+              mode={"outlined"}
+              value={values.typeOfCertification}
+              setValue={handleChange('typeOfCertification')}
+              options={['IT', 'Safety', 'Logistics']}
+              animationType='fade'
+              style = {styles.dropDown}
+              isFullWidth={true}
+              textStyle={{fontSize: 15, bottom: 2, color: "#636363", width: 300}}
+            />
+            </View>
+            </TouchableOpacity>
+
         {errors.titleOfCertification && touched.titleOfCertification ? (
             <Text style = {styles.errorMessage}>{errors.titleOfCertification}</Text>
         ) : null}
@@ -141,17 +181,29 @@ function Form(props) {
         {errors.courseID && touched.courseID ? (
             <Text style = {styles.errorMessage}>{errors.courseID}</Text>
         ) : null}
-        <View style={styles.dateButton}>
-        <Button title='Certificate Expire Date' onPress={setShow}/>
-        </View>
-        {show && <DateTimePicker
+        {Platform.OS === 'ios' 
+        ? 
+          <TextInput 
+            label="Certificate Expiry Date"
+            value={values.expiryDate}
+            onChangeText={handleChange('expiryDate')}
+            style={styles.textInput}
+          />
+        :
+          <View style={styles.dateButton}>
+          <Button title='Certificate Expire Date' onPress={setShow}/>
+          </View>
+        }
+        
+        {show && <View><DateTimePicker
             name={'expiryDate'}
             value={values.expiryDate}
-            style={styles.textInput}
+            style={{width:100, height: 100, left: 100, bottom: 100}}
             onChange ={onChange}
             display='default'
-        />}
-        <Text style = {styles.dateText}>{date.toDateString()}</Text>
+        /></View>}
+        
+        {Platform.OS === 'android' && <Text style = {styles.dateText}>{date.toDateString()}</Text>}
         {errors.expiryDate && touched.expiryDate ? (
             <Text style = {styles.errorMessage}>{errors.expiryDate}</Text>
         ) : null}
@@ -166,9 +218,10 @@ function Form(props) {
             <Text style = {styles.errorMessage}>{errors.certifyingAuthority}</Text>
         ) : null}
         <View style = {styles.choosecert}>
-        <Button title='Choose Certificate' onPress={pickImage}/>
+        <Button style = {styles.chooseButtons} title='Choose Certificate' onPress={pickImage}/>
         </View>
         {image != null && <Image source = {{uri: image}} style = {styles.cert}/>}
+        
     <View style={{top: 15, width: 150, alignSelf: 'center'}}>
         <AppButton onPress={() => {handleSubmit(); setFieldValue("expiryDate", date)}} title="Submit" />
     </View>
@@ -184,6 +237,14 @@ function Form(props) {
             <Text></Text>
             <Text></Text>
             <Text></Text>
+            <Text></Text>
+            <Text></Text>
+            <Text></Text>
+            <Text></Text>
+            <Text></Text>
+            <Text></Text>
+            <Text></Text>
+            
     </ScrollView>)}
     </Formik>
 )}
@@ -194,12 +255,14 @@ const styles = StyleSheet.create({
         width: 300,
         bottom: 5,
         alignSelf: 'center',
+        position: 'relative'
     },
     textInputAuth: {
         marginBottom: 20,
         width: 300,
         bottom: 15,
         alignSelf: 'center',
+        position: 'relative'
     },
     errorMessage: {
         paddingLeft: 60,
@@ -212,6 +275,10 @@ const styles = StyleSheet.create({
         width: 120, 
         left: 225,
         bottom: 68,
+        paddingRight: 100,
+        flexDirection: 'row'
+        
+        
     },
     choosecert: {
         width: 190,
@@ -240,10 +307,35 @@ const styles = StyleSheet.create({
     },
     dateText: {
         bottom: 50,
-        paddingLeft: 221,
+        paddingLeft: 210,
         fontSize: 17,
-        fontWeight: '600'
+        fontWeight: '600',
+        paddingRight: 45,
+        alignSelf: 'flex-end',
+    },
+    dropDown: {
+        marginBottom: 30,
+        width: 300,
+        bottom: 5,
+        alignSelf: 'center',
+        position: 'relative',
+        borderBottomColor: colors.black,
+        backgroundColor: '#FAFAFA',
+        height: 60,
+        alignItems: 'flex-start',
+        paddingTop:25,
+        paddingLeft: 15,
+        borderBottomWidth: 1
+    },
+    safeContainerStyle: {
+      flex: 1,
+      margin: 20,
+      justifyContent: "center",
+    },
+    containerStyle: {
+      flex: 1,
     }
+
 })
 
 export default Form
