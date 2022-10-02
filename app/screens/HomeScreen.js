@@ -62,7 +62,7 @@ const HomeScreen = () => {
         >
       <Text style = {styles.text} >Hello there!</Text> 
       <Text style = {styles.smalltext} >Here are some suggested courses:</Text> 
-      <Text style = {styles.smalltext} >(Slide to find out more!)</Text> 
+      <Text style = {styles.smalltext} >(Slide to see more courses!)</Text> 
       
       <View style = {styles.carousel}>
           <Carousel
